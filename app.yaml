@@ -1,10 +1,8 @@
 runtime: php81
 
-# Opcional: ajusta max_instances según tu necesidad (advertencia de gcloud)
 automatic_scaling:
   max_instances: 20
 
-# handlers (mantengo los tuyos; deberían seguir funcionando)
 handlers:
 - url: /
   script: index.php
@@ -13,7 +11,6 @@ handlers:
 - url: /(.+\.(gif|png|jpg))$
   static_files: \1
   upload: .+\.(gif|png|jpg)$
-  application_readable: true
 
 # Serve php scripts.
 - url: /(.+\.php)$
