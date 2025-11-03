@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="./favicon.ico">
 
     <title>DIARIO EL HOCICÓN</title>
 
@@ -15,8 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/4.1/examples/blog/blog.css" rel="stylesheet">
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-
+  
   </head>
 
   <body>
