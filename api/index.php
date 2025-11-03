@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="./favicon.ico">
 
     <title>DIARIO EL HOCICÓN</title>
 
@@ -34,9 +34,9 @@
       ?>
       <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-12 px-0">
-          <h1 class="display-4 font-italic">
+          <h1 class="display-4 font-italic text-warning">
             <?php
-              echo $portada["titulo"];
+              echo "ILAN NESTOR ANGELES RODRIGUEZ";
             ?>
           </h1>
           <p class="lead my-3">
