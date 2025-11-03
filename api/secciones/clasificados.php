@@ -4,8 +4,8 @@ SUSTITUYE LAS XXX POR UN VALOR DE UNA NOTICIA DE INTERES EN ESTA CATEGORIA
 *****/
 
 $clasificados = [
-"titulo" => "XXX",
-"autor" => "XXX",
-"resumen" => "XXX",
+  "titulo" => "Se vende apartamento céntrico a buen precio",
+  "autor" => "Carlos Ruiz",
+  "resumen" => "Apartamento de 2 habitaciones en el centro, cercano a transporte público y colegios. Ideal para familias pequeñas.",
 ];
 ?>

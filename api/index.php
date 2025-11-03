@@ -52,6 +52,19 @@
   include("secciones/nacional.php");
   include("secciones/ciencia.php");
 
+  include("secciones/clasificados.php");
+  include("secciones/contenedores.php");
+  include("secciones/cultura.php");
+  include("secciones/deportes.php");
+  include("secciones/economia.php");
+  include("secciones/empleo.php");
+include("secciones/formacion.php");
+include("secciones/git.php");
+include("secciones/nube.php");
+include("secciones/openshift.php");
+include("secciones/openstack.php");
+include("secciones/opinion.php");
+
   // Normaliza la sección para devolver siempre un array de artículos
   function articlesArray($section) {
     if (!is_array($section)) return [];
@@ -69,6 +82,18 @@
   $artsInt = articlesArray($internacional ?? []);
   $artsNac = articlesArray($nacional ?? []);
     $artsCiencia = articlesArray($ciencia ?? []);
+    $artsClasificados = articlesArray($clasificados ?? []);
+  $artsContenedores = articlesArray($contenedores ?? []);
+  $artsCultura = articlesArray($cultura ?? []);
+  $artsDeportes = articlesArray($deportes ?? []);
+  $artsEconomia = articlesArray($economia ?? []);
+  $artsEmpleo = articlesArray($empleo ?? []);
+$artsFormacion = articlesArray($formacion ?? []);
+$artsGit = articlesArray($git ?? []);
+$artsNube = articlesArray($nube ?? []);
+$artsOpenshift = articlesArray($openshift ?? []);
+$artsOpenstack = articlesArray($openstack ?? []);
+$artsOpinion = articlesArray($opinion ?? []);
 
 ?>
       <!-- Fila 1: hasta 3 noticias por columna -->
@@ -157,6 +182,379 @@
         </div>
       </div>
 
+      <!-- Fila Clasificados -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsClasificados));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsClasificados[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-secondary">Clasificados</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php }
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay anuncios en clasificados.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <!-- Fin Fila Clasificados -->
+
+      <!-- Fila Contenedores -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsContenedores));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsContenedores[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-dark">Contenedores</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php }
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay noticias sobre contenedores disponibles.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <!-- Fin Fila Contenedores -->
+
+      <!-- Fila Cultura -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsCultura));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsCultura[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-warning">Cultura</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php }
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay noticias de cultura disponibles.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <!-- Fin Fila Cultura -->
+
+      <!-- Fila Deportes -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsDeportes));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsDeportes[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Deportes</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php }
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay noticias deportivas disponibles.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <!-- Fin Fila Deportes -->
+
+      <!-- Fila Economía -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsEconomia));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsEconomia[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-muted">Economía</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php }
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay noticias económicas disponibles.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <!-- Fin Fila Economía -->
+
+
+      <!-- Fila Empleo -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsEmpleo));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsEmpleo[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-secondary">Empleo</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay ofertas de empleo disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Empleo -->
+
+<!-- Fila Formación -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsFormacion));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsFormacion[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-info">Formación</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias de formación disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Formación -->
+
+<!-- Fila Git -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsGit));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsGit[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-dark">Git</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias sobre Git disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Git -->
+
+<!-- Fila Nube -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsNube));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsNube[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-primary">Nube</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias sobre nube disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Nube -->
+
+<!-- Fila OpenShift -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsOpenshift));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsOpenshift[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-secondary">OpenShift</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias sobre OpenShift disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila OpenShift -->
+
+<!-- Fila OpenStack -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsOpenstack));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsOpenstack[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-dark">OpenStack</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias sobre OpenStack disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila OpenStack -->
+
+<!-- Fila Opinión -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsOpinion));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsOpinion[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-muted">Opinión</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay columnas de opinión disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Opinión -->
+ 
     </div>
 
     <footer class="blog-footer">
