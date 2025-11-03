@@ -5,7 +5,7 @@ automatic_scaling:
 
 handlers:
 - url: /
-  script: index.php
+  script: api/index.php
 
 # Serve images as static resources.
 - url: /(.+\.(gif|png|jpg))$
