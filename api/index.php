@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./favicon.ico">
 <!-- favicon público y fiable -->
 <link rel="icon" href="https://github.com/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg" type="image/svg+xml">
