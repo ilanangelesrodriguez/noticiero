@@ -1,4 +1,4 @@
-runtime: php82
+runtime: php81
 
 automatic_scaling:
   max_instances: 20
