@@ -50,6 +50,7 @@
   // Incluimos las secciones que definen $internacional y $nacional
   include("secciones/internacional.php");
   include("secciones/nacional.php");
+  include("secciones/ciencia.php");
 
   // Normaliza la sección para devolver siempre un array de artículos
   function articlesArray($section) {
@@ -67,6 +68,8 @@
 
   $artsInt = articlesArray($internacional ?? []);
   $artsNac = articlesArray($nacional ?? []);
+    $artsCiencia = articlesArray($ciencia ?? []);
+
 ?>
       <!-- Fila 1: hasta 3 noticias por columna -->
       <div class="row mb-2">
@@ -125,6 +128,34 @@
         </div>
       </div>
       <!-- Fin Fila 1 -->
+       <div class="row mb-2">
+        <div class="col-md-12">
+          <?php
+            $limit = min(3, count($artsCiencia));
+            for ($i = 0; $i < $limit; $i++) {
+              $art = $artsCiencia[$i];
+          ?>
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-info">Ciencia</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+              </h3>
+              <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+              <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+            </div>
+          </div>
+          <?php } 
+            if ($limit === 0) {
+          ?>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="mb-0 text-muted">No hay noticias de ciencia disponibles.</p>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
 
     </div>
 
