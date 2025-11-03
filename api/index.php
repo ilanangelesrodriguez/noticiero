@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
     <title>DIARIO EL HOCICÓN</title>
 
