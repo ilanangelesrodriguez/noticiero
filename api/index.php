@@ -91,6 +91,64 @@
       </div>
     </div>
     <?php } 
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias internacionales disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+
+  <div class="col-md-6">
+    <?php
+      // Mostrar hasta 3 noticias nacionales
+      $limit = min(3, count($artsNac));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsNac[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-success">Nacional</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php } 
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias nacionales disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila 1 -->
+<div class="row mb-2">
+  <div class="col-md-6">
+    <?php
+      // Mostrar hasta 3 noticias internacionales
+      $limit = min(3, count($artsInt));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsInt[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php } 
       // Si no hay noticias, puedes mostrar un mensaje opcional:
       if ($limit === 0) {
     ?>
