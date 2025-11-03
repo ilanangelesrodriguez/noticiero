@@ -51,62 +51,54 @@
           </p>
         </div>
       </div>
+<?php
+  include("secciones/internacional.php");
+  include("secciones/nacional.php");
 
-      <!-- Fila 1 -->
-      <?php
-        include("secciones/internacional.php");
-        include("secciones/nacional.php");
-      ?>
-      <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 shadow-sm ">
-            <div class="card-body d-flex flex-column align-items-start col-md-12">
-              <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#">
-                  <?php
-                    echo $internacional["titulo"];
-                  ?>
-                </a>
-              </h3>
-              <div class="mb-1 text-muted">
-                <?php
-                  echo $internacional["autor"];
-                ?>
-              </div>
-              <p class="card-text mb-auto">
-                <?php
-                  echo $internacional["resumen"];
-                ?>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 shadow-sm ">
-            <div class="card-body d-flex flex-column align-items-start col-md-12">
-              <strong class="d-inline-block mb-2 text-success">Nacional</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#">
-                  <?php
-                    echo $nacional["titulo"];
-                  ?>
-                </a>
-              </h3>
-              <div class="mb-1 text-muted">
-                <?php
-                  echo $nacional["autor"];
-                ?>
-              </div>
-              <p class="card-text mb-auto">
-                <?php
-                  echo $nacional["resumen"];
-                ?>
-              </p>
-            </div>
-          </div>
-        </div>
+  // Helper: devuelve un artículo válido (soporta ambos formatos)
+  function firstArticle($section) {
+    // si es lista de artículos y hay al menos uno, devuelve el primero
+    if (is_array($section) && isset($section[0]) && is_array($section[0])) {
+      return $section[0];
+    }
+    // si es un array asociativo (un solo artículo)
+    if (is_array($section) && (isset($section['titulo']) || isset($section['autor']) || isset($section['resumen']))) {
+      return $section;
+    }
+    // fallback vacío para evitar warnings
+    return ['titulo' => '', 'autor' => '', 'resumen' => ''];
+  }
+
+  $artInt = firstArticle($internacional ?? []);
+  $artNac = firstArticle($nacional ?? []);
+?>
+<div class="row mb-2">
+  <div class="col-md-6">
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($artInt['titulo']); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($artInt['autor']); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($artInt['resumen']); ?></p>
       </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-success">Nacional</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($artNac['titulo']); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($artNac['autor']); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($artNac['resumen']); ?></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Fila 1 -->
       <!-- Fin Fila 1 -->
     </div>
 
