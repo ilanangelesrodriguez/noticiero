@@ -65,6 +65,12 @@ include("secciones/openshift.php");
 include("secciones/openstack.php");
 include("secciones/opinion.php");
 
+include("secciones/video.php");
+include("secciones/uns.php");
+include("secciones/television.php");
+include("secciones/tecnologia.php");
+include("secciones/sociedad.php");
+
   // Normaliza la sección para devolver siempre un array de artículos
   function articlesArray($section) {
     if (!is_array($section)) return [];
@@ -95,6 +101,11 @@ $artsOpenshift = articlesArray($openshift ?? []);
 $artsOpenstack = articlesArray($openstack ?? []);
 $artsOpinion = articlesArray($opinion ?? []);
 
+$artsVideo = articlesArray($video ?? []);
+$artsUns = articlesArray($uns ?? []);
+$artsTelevision = articlesArray($television ?? []);
+$artsTecnologia = articlesArray($tecnologia ?? []);
+$artsSociedad = articlesArray($sociedad ?? []);
 ?>
       <!-- Fila 1: hasta 3 noticias por columna -->
       <div class="row mb-2">
@@ -554,8 +565,160 @@ $artsOpinion = articlesArray($opinion ?? []);
   </div>
 </div>
 <!-- Fin Fila Opinión -->
- 
+
+<!-- Fila Video -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsVideo));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsVideo[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-primary">Video</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
     </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay contenido en video disponible.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Video -->
+
+<!-- Fila UNS -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsUns));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsUns[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-secondary">UNS</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias de la UNS disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila UNS -->
+ <!-- Fila Televisión -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsTelevision));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsTelevision[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-warning">Televisión</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias de televisión disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Televisión -->
+<!-- Fila Tecnología -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsTecnologia));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsTecnologia[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-info">Tecnología</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias de tecnología disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Tecnología -->    
+<!-- Fila Sociedad -->
+<div class="row mb-2">
+  <div class="col-md-12">
+    <?php
+      $limit = min(3, count($artsSociedad));
+      for ($i = 0; $i < $limit; $i++) {
+        $art = $artsSociedad[$i];
+    ?>
+    <div class="card flex-md-row mb-4 shadow-sm ">
+      <div class="card-body d-flex flex-column align-items-start col-md-12">
+        <strong class="d-inline-block mb-2 text-muted">Sociedad</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#"><?php echo htmlspecialchars($art['titulo'] ?? ''); ?></a>
+        </h3>
+        <div class="mb-1 text-muted"><?php echo htmlspecialchars($art['autor'] ?? ''); ?></div>
+        <p class="card-text mb-auto"><?php echo htmlspecialchars($art['resumen'] ?? ''); ?></p>
+      </div>
+    </div>
+    <?php }
+      if ($limit === 0) {
+    ?>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="mb-0 text-muted">No hay noticias de sociedad disponibles.</p>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- Fin Fila Sociedad -->
+
+</div>
 
     <footer class="blog-footer">
       <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
